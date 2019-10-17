@@ -6,7 +6,7 @@ export default class SavedList extends Component {
   }
 
   render() {
-    return ( 
+    return (
       <div className="saved-list">
         <h3>Saved Movies:</h3>
         {this.props.list.map(movie => {
@@ -22,6 +22,10 @@ export default class SavedList extends Component {
         })}
         <div className="home-button">
           <Link to="/">Home</Link>
+        </div>
+
+        <div>
+          <Link to="/update-movie/:id">Edit</Link>
         </div>
       </div>
     );
