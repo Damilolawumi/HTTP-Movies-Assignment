@@ -6,7 +6,7 @@ export default class SavedList extends Component {
   }
 
   render() {
-    return (
+    return ( 
       <div className="saved-list">
         <h3>Saved Movies:</h3>
         {this.props.list.map(movie => {
