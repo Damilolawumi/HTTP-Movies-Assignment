@@ -69,9 +69,8 @@ export default function UpdateForm(props) {
 
             <Field name="metascore" placeholder="MetaScore"/>
             <ErrorMessage name="metascore" component="span" /><br/>
-
-            {/* <Field name="stars" placeholder="Stars"/>
-            <ErrorMessage name="stars" component="span" /><br/> */}
+           <Field name="stars" placeholder="Stars"/>
+             <ErrorMessage name="stars" component="span" /><br/>
 
             <input type="submit" />
           </Form>
