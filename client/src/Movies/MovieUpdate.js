@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 export default function UpdateForm(props) {
   
   const validate = ({ editMovie, title, director, metascore, stars }) => {
-    return {};
+    return { };
   };
   let initialValues = {};
   const fetchMovies = () =>{
@@ -66,10 +66,12 @@ export default function UpdateForm(props) {
 
             <Field name="director" placeholder="Director"/>
             <ErrorMessage name="director" component="span" /><br/>
+
             <Field name="metascore" placeholder="MetaScore"/>
             <ErrorMessage name="metascore" component="span" /><br/>
-            <Field name="stars" placeholder="Stars"/>
-            <ErrorMessage name="stars" component="span" /><br/>
+
+            {/* <Field name="stars" placeholder="Stars"/>
+            <ErrorMessage name="stars" component="span" /><br/> */}
 
             <input type="submit" />
           </Form>

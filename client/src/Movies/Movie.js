@@ -36,7 +36,7 @@ export default class Movie extends React.Component {
     // debugger
     window.location.href = `/update-movie/${id}`;
     // console.log(this.state.movie)
-    
+
   };
 
   render() {
@@ -45,20 +45,23 @@ export default class Movie extends React.Component {
     }
 
     return (
-      <div className="save-wrapper">
-        <MovieCard movie={this.state.movie} />
-        <div className="save-button" onClick={this.saveMovie}>
-          Save
-        </div>
-        <div className="delete-button" onClick={
+      <>
+        <div className="save-wrapper">
+          <MovieCard movie={this.state.movie} />
+          <div className="save-button" onClick={this.saveMovie}>
+            Save
+          </div>
+          <div className="edit-button" onClick={this.editMovie(this.state.movie.id)}>
+            Edit
+          </div>
+          <div className="delete-button" onClick={
             this.props.deleteMovie(this.state.movie.id)
           }>
             Delete
           </div>
-        {/* <Link  to={{ pathname: `/update-movie/${this.state.movie.id}`, state: { movie:this.state.movie} }}>
-          Edit Movie
-        </Link> */}
-      </div>
+        </div>
+      </>
+    
     );
   }
 }
