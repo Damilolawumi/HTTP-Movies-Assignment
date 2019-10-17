@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
 import MovieUpdate from "./Movies/MovieUpdate";
+import { createBrowserHistory } from "history";
 
+export const customHistory = createBrowserHistory();
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
@@ -12,18 +14,20 @@ const App = () => {
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
   };
-
+  
   return (
     <>
       <SavedList list={savedList} />
-      <Route exact path="/" component={MovieList} />
-      <Route
-        path="/movies/:id"
-        render={props => {
-          return <Movie {...props} addToSavedList={addToSavedList} />;
-        }}
-      />
-      <Route path='/update-movie/:id' component={MovieUpdate}/>
+      <Router history={customHistory}>
+        <Route exact path="/" component={MovieList} />
+        <Route
+          path="/movies/:id"
+          render={props => {
+            return <Movie {...props} addToSavedList={addToSavedList} />;
+          }}
+        />
+        <Route path='/update-movie/:id' component={MovieUpdate} />
+      </Router>
     </>
   );
 };
